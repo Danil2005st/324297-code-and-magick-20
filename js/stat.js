@@ -44,12 +44,9 @@ window.renderStatistics = function (ctx, players, times) {
 
     ctx.fillStyle = '#000';
     ctx.fillText(players[i], BAR_X + (BAR_WIDTH + COLUMN_GAP) * i, BAR_Y);
-    if (players[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    } else {
-      ctx.fillStyle = 'hsl(240,' + colorSaturation + '%,50%)';
-    }
-    ctx.fillRect(BAR_X + (BAR_WIDTH + COLUMN_GAP) * i, BAR_Y - FONT_GAP - barHeight, BAR_WIDTH, barHeight);
     ctx.fillText(Math.round(times[i]), BAR_X + (BAR_WIDTH + COLUMN_GAP) * i, BAR_Y - FONT_GAP * 2 - barHeight);
+
+    ctx.fillStyle = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240,' + colorSaturation + '%,50%)';
+    ctx.fillRect(BAR_X + (BAR_WIDTH + COLUMN_GAP) * i, BAR_Y - FONT_GAP - barHeight, BAR_WIDTH, barHeight);
   }
 };
